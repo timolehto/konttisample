@@ -1,0 +1,20 @@
+#!/bin/sh
+
+function check_kontena_version() {
+  echo "kontena version: `kontena version`"
+
+  local expected_contena_version="cli: 0.15.1"
+  if [ "`kontena version`" != "$expected_contena_version" ]; then
+    echo "Warning! It seems you are using different kontena version than I. I'm using: $expected_contena_version"
+  fi
+}
+
+check_kontena_version
+
+set -v
+
+kontena app build -f kontena_works.yml
+
+kontena app build -f kontena_works_too.yml
+
+kontena app build -f kontena_fails.yml
