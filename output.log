@@ -1,0 +1,35 @@
+kontena version: cli: 0.15.1
+
+kontena app build -f kontena_works.yml
+Building image konttisample:latest
+Sending build context to Docker daemon  55.3 kB
+Step 1 : FROM alpine
+ ---> 4e38e38c8ce0
+Step 2 : RUN echo 'Tis just a sampla'
+ ---> Using cache
+ ---> b64b672d8ed1
+Successfully built b64b672d8ed1
+Pushing image konttisample:latest to registry
+The push refers to a repository [docker.io/library/konttisample]
+4fe15f8d0ae6: Preparing 
+unauthorized: authentication required
+Failed to push image konttisample:latest
+
+kontena app build -f kontena_works_too.yml
+Building image foobar:latest
+Sending build context to Docker daemon  55.3 kB
+Step 1 : FROM alpine
+ ---> 4e38e38c8ce0
+Step 2 : RUN echo 'Tis just a sampla'
+ ---> Using cache
+ ---> b64b672d8ed1
+Successfully built b64b672d8ed1
+Pushing image foobar:latest to registry
+The push refers to a repository [docker.io/library/foobar]
+4fe15f8d0ae6: Preparing 
+unauthorized: authentication required
+Failed to push image foobar:latest
+
+kontena app build -f kontena_fails.yml
+Kontena error: no implicit conversion of Hash into String
+Rerun the command with environment DEBUG=true set to get the full exception
